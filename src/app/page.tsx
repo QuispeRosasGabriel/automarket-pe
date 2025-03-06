@@ -121,7 +121,6 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      {/* Hero Section */}
       <div className="text-center py-12 bg-gray-100 rounded-lg mb-6">
         <h1 className="text-4xl text-black font-bold">AutoMarket</h1>
         <p className="text-gray-600 mt-2">Tu auto ideal, con confianza y seguridad.</p>
@@ -129,7 +128,6 @@ export default function Home() {
     <div className="p-6 max-w-6xl mx-auto">
 
       
-      {/* Filters */}
       <div className="flex gap-4 mb-6">
         <select onChange={(e) => setBrandFilter(e.target.value)} className="p-2 border rounded">
           <option value="">All Brands</option>
@@ -149,7 +147,7 @@ export default function Home() {
           type="number"
           placeholder="Max Price"
           value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
+          onChange={(e) => setMaxPrice(Number(e.target.value))}
           className="p-2 border rounded"
         />
       </div>
@@ -175,7 +173,6 @@ export default function Home() {
         ))}
       </div>
       
-      {/* Featured Cars Carousel */}
       <div className="relative mt-12 overflow-hidden">
         <button onClick={handlePrev} className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded" style={{position: 'absolute', zIndex: 100}}>◀</button>
         <div className="flex transition-transform" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
