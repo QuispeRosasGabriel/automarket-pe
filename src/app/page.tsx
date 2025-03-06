@@ -121,22 +121,22 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      {/* Hero Section */}
       <div className="text-center py-12 bg-gray-100 rounded-lg mb-6">
         <h1 className="text-4xl text-black font-bold">AutoMarket</h1>
         <p className="text-gray-600 mt-2">Tu auto ideal, con confianza y seguridad.</p>
       </div>
-    <div className="p-6 max-w-6xl mx-auto">
-
-      
+    <div className="p-6 max-w-6xl mx-auto bg-white">
+      {/* Filters */}
       <div className="flex gap-4 mb-6">
-        <select onChange={(e) => setBrandFilter(e.target.value)} className="p-2 border rounded">
+        <select onChange={(e) => setBrandFilter(e.target.value)} className="p-2 border border-black  rounded">
           <option value="">All Brands</option>
           <option value="Tesla">Tesla</option>
           <option value="BMW">BMW</option>
           <option value="Toyota">Toyota</option>
         </select>
         
-        <select onChange={(e) => setFuelFilter(e.target.value)} className="p-2 border rounded">
+        <select onChange={(e) => setFuelFilter(e.target.value)} className="p-2 border border-black  rounded">
           <option value="">All Fuel Types</option>
           <option value="Electric">Electric</option>
           <option value="Gasoline">Gasoline</option>
@@ -148,13 +148,13 @@ export default function Home() {
           placeholder="Max Price"
           value={maxPrice}
           onChange={(e) => setMaxPrice(Number(e.target.value))}
-          className="p-2 border rounded"
+          className="p-2 border border-black  rounded"
         />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {featuredCars.slice(0,6).map((car) => (
-          <div key={car.id} className="p-4 border rounded-lg shadow-lg">
+          <div key={car.id} className="p-4 border border-black rounded-lg shadow-lg">
             <img src={car.image} alt={car.model} className="w-full h-40 object-cover rounded-md" />
             <h2 className="text-xl font-semibold mt-2">{car.brand} {car.model}</h2>
             <p className="text-gray-600">${car.price.toLocaleString()}</p>
@@ -165,14 +165,15 @@ export default function Home() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-12">
         {advantages.map((adv, index) => (
-          <div key={index} className="flex flex-col items-center text-center p-6  shadow-md">
+          <div key={index} className="flex flex-col items-center text-center p-6 ">
             <div className="text-blue-600 mb-4">{adv.icon}</div>
-            <h2 className="text-xl font-semibold">{adv.title}</h2>
+            <h2 className="text-xl font-semibold text-black">{adv.title}</h2>
             <p className="text-gray-600 mt-2">{adv.description}</p>
           </div>
         ))}
       </div>
       
+      {/* Featured Cars Carousel */}
       <div className="relative mt-12 overflow-hidden">
         <button onClick={handlePrev} className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded" style={{position: 'absolute', zIndex: 100}}>◀</button>
         <div className="flex transition-transform" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
@@ -192,7 +193,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-6 text-center">Categorías destacadas</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {categories.map((category, index) => (
-            <div key={index} className="border rounded-lg overflow-hidden shadow-md">
+            <div key={index} className="border border-black rounded-lg overflow-hidden shadow-md">
               <img src={category.image} alt={category.name} className="w-full h-40 object-cover" />
               <div className="p-4 text-center">
                 <h3 className="text-xl font-semibold">{category.name}</h3>
@@ -207,11 +208,11 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-4 text-gray-900">¿Tienes un vehículo para vender?</h2>
         <p className="text-gray-700 mb-6">Véndelo en menos de 1 semana y con seguridad a través de NeoAuto</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-md text-center border border-gray-300">
+          <div className="bg-white p-6 rounded-lg shadow-md text-center border border-black-300">
             <h3 className="text-xl font-semibold mb-2 text-gray-900">Quiero vender mi propio auto</h3>
             <a href="#" className="text-blue-600 font-semibold">Conocer más</a>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md text-center border border-gray-300">
+          <div className="bg-white p-6 rounded-lg shadow-md text-center border border-black-300">
             <h3 className="text-xl font-semibold mb-2 text-gray-900">Soy concesionario o revendedor</h3>
             <a href="#" className="text-blue-600 font-semibold">Conocer más</a>
           </div>
